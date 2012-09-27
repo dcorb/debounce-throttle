@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>
+      body {
+        background: #444444;
+        color: white;
+        font: 15px/1.51 Helvetica, sans-serif;
+        overflow:hidden;
+      }
+      #switcher {
+        text-align:center;
+      }
+      button {
+        cursor: pointer;
+        color: black;
+        border: 1px solid #999;
+        background: #DADADA;
+        padding: 2px 8px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        background-image: -moz-linear-gradient(top,#EBEBEB,#B8B8B8);
+        background-image: -o-linear-gradient(top,#EBEBEB,#B8B8B8);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#EBEBEB),to(#B8B8B8));
+        background-image: -webkit-linear-gradient(top,#EBEBEB,#B8B8B8);
+        background-image: linear-gradient(top,#EBEBEB,#B8B8B8);
+      }
+      #use-lodash {
+        margin-right: 30px;
+      }
+      #content {
+        margin-left: 145px;
+        position: relative;
+      }
+      #content span {
+        height:17px;
+        width:7px;
+        vertical-align:top;
+        display:inline-block;
+        border-left:1px solid #999;
+        font-size:12px;
+      }
+      #content div{
+        margin:0;
+        font-family:monospace;
+        color: black;
+        height: 23px;
+      }
+      h2 {
+        margin:0;
+        height: 15px;
+        clear:both;
+        font-weight: normal;
+        width:100%;
+        font-size:11px;
+      }
+      #sidebar {
+        height:100%;
+        width: 120px;
+        position:absolute;
+      }
+      #sidebar-free {
+        height: 197px;
+        width: 100%;
+        border: 1px solid #ccc;
+        position:relative;
+        padding: 55px 5px;
+        text-align: center;
+        background-color: #3e5f7c;
+      }
+
+      .color0 { background-color: #9BFFBB}
+      .color1 { background-color: #E3FF7E}
+      .color2 { background-color: #B9C6FF}
+      .color3 { background-color: #99FF7E}
+      .color4 { background-color: #FFB38A}
+      .color5 { background-color: #A5FCFF}
+      .color6 { background-color: #FF8E9B}
+      .color7 { background-color: #FFE589}
+      .color8 { background-color: #FFA3D8}
+      .color9 { background-color: #5ca6ff}
+
+    </style>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="lodash.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="jquery-throttle-debounce.js"></script>
+    <script>window.lo = _.noConflict();</script>
+
+  </head>
+  <body>
+  <div id="switcher">
+    <div id="actions">
+      <button id="use-lodash" data-lodash=false>Using <strong>underscore.js</strong> | <strike>lodash.js</strike></button>
+      <button id="every100">1 event every 100 ms</button>
+      <button id="every300" class="every">2 events every 300 ms</button>
+    </div>
+  </div>
+
+    <div id="sidebar">
+      <div id="sidebar-free">Move your mouse here</div>
+    </div>
+
+    <div id="content">
+      <h2>Mousemove Events:</h2><div id="allEvents"></div>
+      <h2>Debounce Inmediate: _.debounce(fn, 200, true);</h2><div id="debounce_true"></div>
+      <h2>Debounce Inmediate: $.debounce(200, true, fn);</h2> <div id="debouncejtrue"></div>
+      <h2>Debounce: _.debounce(fn, 200);</h2> <div id="debounce_false"></div>
+      <h2>Debounce: $.debounce(200, false, fn);</h2> <div id="debouncejfalse"></div>
+      <h2>Throttle with trailing: _.throttle(fn, 200);</h2> <div id="throttle_true"></div>
+      <h2>Throttle with trailing: $.throttle(200, false, fn);</h2> <div id="throttlejfalse"></div>
+      <h2>Throttle: $.throttle(200, true, fn);</h2> <div id="throttlejtrue"></div>
+    </div>
+    <a href="https://github.com/dcorb/debounce-throttle">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">
+    </a>
+  </body>
+</html>
