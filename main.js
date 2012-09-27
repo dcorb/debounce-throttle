@@ -85,7 +85,7 @@ $(document).ready(function(){
     draw();
   });
 
-  $('#actions #every100').on('click', function(e){
+  $('#every100').on('click', function(e){
     e.preventDefault();
     reset();
     draw();
@@ -95,7 +95,7 @@ $(document).ready(function(){
   });
 
 
-  $('#actions #every300').on('click', function(e){
+  $('#every300').on('click', function(e){
     e.preventDefault();
     reset();
     draw();
@@ -111,11 +111,11 @@ $(document).ready(function(){
     if ($(this).data('lodash')){
       setup_lazy_functions(_);
       $(this).data('lodash', false)
-             .html('Using <strong>underscore.js</strong> | <strike>lodash.js</strike>')
+             .html('Using <strong>underscore.js</strong> | <del>lodash.js</del>')
     } else {
       setup_lazy_functions(lo);
       $(this).data('lodash', true)
-             .html('Using <strike>underscore.js</strike> | <strong>lodash.js</strong>')
+             .html('Using <del>underscore.js</del> | <strong>lodash.js</strong>')
     }
   });
 
@@ -137,7 +137,5 @@ $(document).ready(function(){
       }
     }, 30);
   };
-
-
 
 });
