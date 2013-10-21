@@ -8,6 +8,7 @@ $(document).ready(function(){
      divThrottle_true = $('#throttle_true'),
      divThrottlejtrue = $('#throttlejtrue'),
      divThrottlejfalse = $('#throttlejfalse'),
+	  divDelayed = $('#delayedEvents'),
      sidebar_mousemove = $('#sidebar-free'),
      counter = 0,
      next_color = 0,
@@ -20,7 +21,8 @@ $(document).ready(function(){
      lazyDebouncejfalse,
      lazyThrottle_true,
      lazyThrottlejtrue,
-     lazyThrottlejfalse;
+     lazyThrottlejfalse,
+	  delayedUpdate;
 
 
   function update(div, color){
@@ -41,6 +43,8 @@ $(document).ready(function(){
     lazyThrottle_true = _.throttle(update, 200);
     lazyThrottlejtrue = $.throttle(200, true, update);
     lazyThrottlejfalse = $.throttle(200, false, update);
+
+	 delayedUpdate = delayed(update, 200);
   }
 
   function updateEvents(){
@@ -52,6 +56,7 @@ $(document).ready(function(){
     lazyThrottle_true(divThrottle_true, next_color);
     lazyThrottlejtrue(divThrottlejtrue, next_color);
     lazyThrottlejfalse(divThrottlejfalse, next_color);
+	 delayedUpdate(divDelayed, next_color);
     next_color++;
     if (next_color > 9){
       next_color = 0;
@@ -70,6 +75,7 @@ $(document).ready(function(){
     divThrottle_true.html('<span></span>');
     divThrottlejtrue.html('<span></span>');
     divThrottlejfalse.html('<span></span>');
+	 divDelayed.html('<span></span>');
     next_color = 0;
     counter = 0;
     clearInterval(drawing_automated);
@@ -130,6 +136,7 @@ $(document).ready(function(){
       divThrottlejtrue[0].appendChild(document.createElement('span'));
       divThrottlejfalse[0].appendChild(document.createElement('span'));
       divThrottle_true[0].appendChild(document.createElement('span'));
+		divDelayed[0].appendChild(document.createElement('span'));
 
       if (counter > 95){
         clearInterval(drawing);
